@@ -18,6 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DataQueue.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="ProcessingSystem.h" />
+    <ClInclude Include="Processor.h" />
+    <ClInclude Include="ProcessorFactory.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -123,19 +139,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <Text Include="..\..\..\..\Downloads\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\DataQueue.h" />
-    <ClInclude Include="..\..\..\..\Downloads\Logger.h" />
-    <ClInclude Include="..\..\..\..\Downloads\ProcessingSystem.h" />
-    <ClInclude Include="..\..\..\..\Downloads\Processor.h" />
-    <ClInclude Include="..\..\..\..\Downloads\ProcessorFactory.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
