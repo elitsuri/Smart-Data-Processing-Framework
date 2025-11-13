@@ -18,7 +18,8 @@ void printDivider(const std::string& title = "")
 }
 
 // ============ TEST 1: Integer Processing ============
-void testIntegerProcessing() {
+void testIntegerProcessing() 
+{
     printDivider("TEST 1: Integer Processing with NumericProcessor");
     
     ProcessingSystem<int> system(4, 1000);
@@ -27,7 +28,8 @@ void testIntegerProcessing() {
 
     LOG_INFO("Adding 10 integer values for processing...");
     
-    for (int i = 1; i <= 10; ++i) {
+    for (int i = 1; i <= 10; ++i)
+    {
         system.addData(i);
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
@@ -37,16 +39,16 @@ void testIntegerProcessing() {
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
     
     auto collected = system.getResults(10);
-    for (const auto& res : collected) {
+    for (const auto& res : collected) 
         std::cout << "Result: " << res << std::endl;
-    }
 
     system.printStatistics();
     system.stop();
 }
 
 // ============ TEST 2: Float Processing with Filtering ============
-void testFilteringProcessor() {
+void testFilteringProcessor() 
+{
     printDivider("TEST 2: Float Processing with FilteringProcessor");
     
     ProcessingSystem<float> system(3, 1000);
@@ -56,7 +58,8 @@ void testFilteringProcessor() {
     LOG_INFO("Adding float values (filter passes only >= 5.0)...");
     
     std::vector<float> values = {1.5f, 3.2f, 5.5f, 4.1f, 8.9f, 2.3f, 10.0f};
-    for (float val : values) {
+    for (float val : values) 
+    {
         system.addData(val);
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
@@ -83,7 +86,8 @@ void testStringProcessing() {
     LOG_INFO("Adding strings for processing...");
     
     std::vector<std::string> strings = {"Hello", "C++", "Templates"};
-    for (const auto& str : strings) {
+    for (const auto& str : strings) 
+    {
         system.addData(str);
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
@@ -109,7 +113,8 @@ void testAmplificationProcessor() {
 
     LOG_INFO("Adding double values for amplification...");
     
-    for (int i = 1; i <= 8; ++i) {
+    for (int i = 1; i <= 8; ++i) 
+    {
         double value = i * 1.5;
         system.addData(value);
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
@@ -118,16 +123,17 @@ void testAmplificationProcessor() {
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
     
     auto results = system.getResults(10);
-    for (const auto& res : results) {
+    for (const auto& res : results) 
         std::cout << "Amplified Result: " << res << std::endl;
-    }
+    
 
     system.printStatistics();
     system.stop();
 }
 
 // ============ TEST 5: Statistical Processor ============
-void testStatisticalProcessor() {
+void testStatisticalProcessor() 
+{
     printDivider("TEST 5: Statistical Processor (running average)");
     
     ProcessingSystem<int> system(1, 1000);
@@ -166,12 +172,14 @@ void stressTest() {
     auto startTime = std::chrono::high_resolution_clock::now();
     
     // Producer thread - add 1000 items rapidly
-    std::thread producer([&system]() {
-        for (int i = 0; i < 1000; ++i) {
+    std::thread producer([&system]() 
+        {
+        for (int i = 0; i < 1000; ++i) 
+        {
             system.addData(i, 5000);
-            if (i % 100 == 0) {
+            if (i % 100 == 0) 
                 LOG_DEBUG("Producer: added " + std::to_string(i) + " items");
-            }
+            
         }
     });
 
