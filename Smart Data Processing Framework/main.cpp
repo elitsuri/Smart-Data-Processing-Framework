@@ -176,15 +176,17 @@ void stressTest() {
     });
 
     // Collector thread - collect results
-    std::thread collector([&system]() {
+    std::thread collector([&system]() 
+        {
         int collected = 0;
-        while (collected < 1000) {
+        while (collected < 1000)
+        {
             auto result = system.getResult(100);
-            if (result) {
+            if (result)
+            {
                 collected++;
-                if (collected % 100 == 0) {
-                    LOG_DEBUG("Collector: collected " + std::to_string(collected) + " items");
-                }
+                if (collected % 100 == 0) 
+                    LOG_DEBUG("Collector: collected " + std::to_string(collected) + " items");      
             }
         }
     });
@@ -213,12 +215,9 @@ void testProcessorFactory() {
     // Integer processors
     auto& factory_int = ProcessorFactory<int>::getInstance();
     
-    auto numeric = factory_int.createProcessor(
-        ProcessorType::NUMERIC, {{"multiplier", 3.0}});
-    auto filtering = factory_int.createProcessor(
-        ProcessorType::FILTERING, {{"threshold", 5.0}});
-    auto amplification = factory_int.createProcessor(
-        ProcessorType::AMPLIFICATION, {{"gain", 1.5}});
+    auto numeric = factory_int.createProcessor(ProcessorType::NUMERIC, { {"multiplier", 3.0} });
+    auto filtering = factory_int.createProcessor(ProcessorType::FILTERING, { {"threshold", 5.0} });
+    auto amplification = factory_int.createProcessor(ProcessorType::AMPLIFICATION, { {"gain", 1.5} });
 
     LOG_INFO("Created processors:");
     LOG_INFO("  - " + numeric->getName());
