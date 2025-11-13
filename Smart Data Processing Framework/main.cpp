@@ -7,9 +7,11 @@
 #include "ProcessingSystem.h"
 #include "ProcessorFactory.h"
 
-void printDivider(const std::string& title = "") {
+void printDivider(const std::string& title = "")
+{
     std::cout << "\n" << std::string(60, '=') << std::endl;
-    if (!title.empty()) {
+    if (!title.empty()) 
+    {
         std::cout << "  " << title << std::endl;
         std::cout << std::string(60, '=') << std::endl;
     }
